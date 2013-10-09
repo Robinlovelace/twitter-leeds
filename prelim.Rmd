@@ -1,0 +1,104 @@
+Loading and preliminary analysis of twitter data
+========================================================
+
+## Load the files
+The entire twitter dataset is stored as a MYSQL database. To save only tweets that are relevant to museums, first
+they were filtered, to select only tweets containing the four following character strings: exhibit, exhibition, gallery or     museum. This filter was applied to the MYSQL database, leading to a much smaller dataset that was exported as an .xls file and then conterted into .csv for loading into R. The preliminary analysis shows the basic features of this filtered dataset.
+
+```{r}
+tw <- read.csv("results.csv") # load
+names(tw) # column names
+nrow(tw) # number of rows of data
+plot(tw$X_tweet_location, tw$Y_tweet_location) # plot
+summary(tw$word) # summary of the words which lead to selection
+```
+
+Of note here is that there are only 1,553 tweets in this dataset, that we have a range of variables (location, time and text of tweet) and that the tweets are concentrated into a couple of locations (Leeds and Bradford). It is notable that 
+"museum" is the word that accounts for the majority of the tweet selections (almost 2/3s), followed by "gallery", "exhibition" and finally "exhibit", which was responsible for selecting only 27 tweets.
+
+## Analysis of textual context
+This project is about museums, so it is important to estimate the proportion of tweets that are actually about museums in the dataset. To do this let's select 20 tweets at random and identify how many are museum-related manually, by reading them:
+
+```{r}
+set.seed(10)
+tw$text[sample(tw$text, size=20)]
+```
+From these it seems that 2 are unrelated to museums (entries 17 and 19, one about Amy Winehouse and the other about snooker) and many others are not about visiting museums per se, rather preparing for museum interviews etc. 
+Still, there are an impressive number (roughly half) that seem to be directly related to museum appreciation or visits.
+
+## Analysis of frequency of tweets by user
+It is important to know how frequently each user tweets, to see if we have enough information for 
+analysing behaviour of single agents (if people tweet many times). If most people only tweet about 
+museums/exhibits once, however, the dataset is far less useful to provide insight into the behaviour
+of individuals over time, providing only single snapshots of different people.
+
+```{r}
+# analysis of frequency of tweets by user
+tw$user_id <- as.factor(tw$user_id) # convert id to factor class
+summary(tw$user_id) # summary of tweets - one tweeted 48 times
+ttable <- as.factor(table(tw$user_id)) # create summary
+summary(ttable) # distribution of tweets
+plot(ttable)
+nrow(tw) / length(unique(tw$user_id)) # average number of tweets/person
+378 / 1553
+sum(1:3 * c(378, 145,  53)) / 1553
+1:3 * as.numeric(levels(ttable))[19:17]
+sum(22, 24, 27, 48) /1553
+```
+As the above analysis shows, the distribution of tweets by users is highly skewed, with the most common number of tweets
+per person being 1, and tweeters who send 5 or fewer tweets accounting for just over half of all tweets. 
+Those who tweet more than 20 times are rare (4 individuals) and these people account for only 8% of recorded tweets.
+
+## Load into spatial data frame
+For the next stage of analysis, we need to first load the data into a spatial dataframe.
+```{r}
+sessionInfo() # shows packages loaded - if no geo ones, load them...
+x = c("ggplot2", "sp", "rgeos", "mapproj", "rgdal", "maptools")
+lapply(x, require, character.only=T) # the R packages we'll be using
+tws <- SpatialPointsDataFrame(coords=tw[,4:5], data=tw)
+plot(tws) # automatically plots as spatial data
+```
+
+To plot the data on a map, first we must change the projection:
+```{r}
+proj4string(tws) # lacks projection info
+proj4string(tws) <- CRS("+init=epsg:27700")
+twsll <- SpatialPointsDataFrame(spTransform(tws, CRSobj=CRS("+init=epsg:4324")), data=tws@data) 
+library(ggmap)
+ggplot() +  geom_point(aes(x=coordinates(twsll)[,1], y=coordinates(twsll)[,2]))
+qmap('Leeds') + geom_point(aes(x=coordinates(twsll)[,1], y=coordinates(twsll)[,2]), data=twsll@data)
+
+```
+
+## Analysis of timescales of twitter data
+Finally, let us look at the time period over which the data has been collected:
+
+```{r}
+summary(tw$year) ; summary(tw$month) ; summary(tw$day) ; summary(tw$hour)
+ddate <-as.Date(paste(tw$year, tw$month, tw$day, sep="."), format= "%Y.%m.%d")
+summary(ddate)
+plot(ddate)
+range(ddate)
+max(ddate) - min(ddate)
+summary(as.factor(tw$hour))
+sum(summary(as.factor(tw$hour))[8:16] ) / nrow(tw)
+hist(tw$hour)
+```
+
+There is a fairly constant flow of tweets over the timespan of the data collection (445 days, from June 2011 until September 2012) as illustrated by the above scatterplot. It inspires confidence in the data 
+to note that there is a strong diurnal pattern to the tweets, with the vast majority (76%) of tweets occuring 
+during normal working hours of 9 am to 5 pm.
+
+```{r}
+twm <- melt(tw, id=c("year", "month"))
+dcast(twm, formula= month ~ variable)[,1:2]
+tmsum <- dcast(twm, formula= month ~ variable)[,1:2]
+sum(tmsum[,2]) # correct number of tweets
+qplot(data=tmsum, x=month, y=word) + geom_smooth() + scale_x_continuous(breaks=1:12)
+dcast(twm, formula= year + month ~ variable)[,1:3]  
+```
+From the above it seems there is a seasonal pattern to the tweets also.
+
+
+
+

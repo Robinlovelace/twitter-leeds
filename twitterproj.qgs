@@ -1,0 +1,1003 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis projectname="" version="2.1.0-Master">
+    <title></title>
+    <mapcanvas>
+        <units>meters</units>
+        <extent>
+            <xmin>-213505.59528428100747988</xmin>
+            <ymin>7107674.3277977155521512</ymin>
+            <xmax>-139477.32172428478952497</xmax>
+            <ymax>7167934.53969830553978682</ymax>
+        </extent>
+        <projections>1</projections>
+        <destinationsrs>
+            <spatialrefsys>
+                <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+                <srsid>3857</srsid>
+                <srid>3857</srid>
+                <authid>EPSG:3857</authid>
+                <description>WGS 84 / Pseudo Mercator</description>
+                <projectionacronym>merc</projectionacronym>
+                <ellipsoidacronym>WGS84</ellipsoidacronym>
+                <geographicflag>false</geographicflag>
+            </spatialrefsys>
+        </destinationsrs>
+    </mapcanvas>
+    <legend updateDrawingOrder="true" activeLayer="wards220131009174255897">
+        <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="wards2" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="wards220131009174255897" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="results" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="results20131009172707974" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="Simplified layer" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="Simplified_layer20131009173753574" visible="0"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="Google Physical" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="OpenLayers_plugin_layer20131009172753464" visible="0"/>
+            </filegroup>
+        </legendlayer>
+    </legend>
+    <projectlayers layercount="4">
+        <maplayer minimumScale="0" maximumScale="1e+08" ol_layer_type="0" type="plugin" hasScaleBasedVisibilityFlag="0" name="openlayers">
+            <id>OpenLayers_plugin_layer20131009172753464</id>
+            <datasource></datasource>
+            <title></title>
+            <abstract></abstract>
+            <keywordList>
+                <value></value>
+            </keywordList>
+            <layername>Google Physical</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+                    <srsid>3857</srsid>
+                    <srid>3857</srid>
+                    <authid>EPSG:3857</authid>
+                    <description>WGS 84 / Pseudo Mercator</description>
+                    <projectionacronym>merc</projectionacronym>
+                    <ellipsoidacronym>WGS84</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <customproperties/>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" minLabelScale="0" maxLabelScale="1e+08" geometry="Polygon" type="vector" hasScaleBasedVisibilityFlag="0" scaleBasedLabelVisibilityFlag="0">
+            <id>Simplified_layer20131009173753574</id>
+            <datasource>/tmp/processing/f9bda22372e344f5bd77a7259efd4a64/OUTPUT.shp</datasource>
+            <title></title>
+            <abstract></abstract>
+            <keywordList>
+                <value></value>
+            </keywordList>
+            <layername>Simplified layer</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.999601272 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs</proj4>
+                    <srsid>100001</srsid>
+                    <srid>0</srid>
+                    <authid>USER:100001</authid>
+                    <description> * Generated CRS (+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.999601272 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs)</description>
+                    <projectionacronym>tmerc</projectionacronym>
+                    <ellipsoidacronym>airy</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <provider encoding="UTF-8">ogr</provider>
+            <previewExpression>COALESCE( "ZONE_CODE", '&lt;NULL>' )</previewExpression>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol alpha="1" type="fill" name="0">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_unit" v="MM"/>
+                            <prop k="color" v="29,177,138,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="offset_unit" v="MM"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field="" scalemethod="area"/>
+            </renderer-v2>
+            <customproperties/>
+            <blendMode>0</blendMode>
+            <featureBlendMode>0</featureBlendMode>
+            <layerTransparency>0</layerTransparency>
+            <displayfield>ZONE_CODE</displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="Ubuntu"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <featformsuppress>0</featformsuppress>
+            <annotationform></annotationform>
+            <editorlayout>generatedlayout</editorlayout>
+            <excludeAttributesWMS/>
+            <excludeAttributesWFS/>
+            <attributeactions/>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" minLabelScale="0" maxLabelScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0" scaleBasedLabelVisibilityFlag="0">
+            <id>results20131009172707974</id>
+            <datasource>file:./results.csv?type=csv&amp;xField=X_tweet_location&amp;yField=Y_tweet_location&amp;spatialIndex=no&amp;subsetIndex=no&amp;watchFile=no</datasource>
+            <title></title>
+            <abstract></abstract>
+            <keywordList>
+                <value></value>
+            </keywordList>
+            <layername>results</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs</proj4>
+                    <srsid>2437</srsid>
+                    <srid>27700</srid>
+                    <authid>EPSG:27700</authid>
+                    <description>OSGB 1936 / British National Grid</description>
+                    <projectionacronym>tmerc</projectionacronym>
+                    <ellipsoidacronym>airy</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <provider encoding="UTF-8">delimitedtext</provider>
+            <previewExpression></previewExpression>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol alpha="0.337255" type="marker" name="0">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="255,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="horizontal_anchor_point" v="1"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_width" v="0"/>
+                            <prop k="outline_width_unit" v="MM"/>
+                            <prop k="scale_method" v="area"/>
+                            <prop k="size" v="2"/>
+                            <prop k="size_unit" v="MM"/>
+                            <prop k="vertical_anchor_point" v="1"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field="" scalemethod="area"/>
+            </renderer-v2>
+            <customproperties>
+                <property key="labeling" value="pal"/>
+                <property key="labeling/addDirectionSymbol" value="false"/>
+                <property key="labeling/angleOffset" value="0"/>
+                <property key="labeling/blendMode" value="0"/>
+                <property key="labeling/bufferBlendMode" value="0"/>
+                <property key="labeling/bufferColorA" value="255"/>
+                <property key="labeling/bufferColorB" value="255"/>
+                <property key="labeling/bufferColorG" value="255"/>
+                <property key="labeling/bufferColorR" value="255"/>
+                <property key="labeling/bufferDraw" value="false"/>
+                <property key="labeling/bufferJoinStyle" value="64"/>
+                <property key="labeling/bufferNoFill" value="false"/>
+                <property key="labeling/bufferSize" value="1"/>
+                <property key="labeling/bufferSizeInMapUnits" value="false"/>
+                <property key="labeling/bufferTransp" value="0"/>
+                <property key="labeling/centroidWhole" value="false"/>
+                <property key="labeling/decimals" value="3"/>
+                <property key="labeling/displayAll" value="false"/>
+                <property key="labeling/dist" value="0"/>
+                <property key="labeling/distInMapUnits" value="false"/>
+                <property key="labeling/enabled" value="false"/>
+                <property key="labeling/fieldName" value=""/>
+                <property key="labeling/fontBold" value="true"/>
+                <property key="labeling/fontCapitals" value="0"/>
+                <property key="labeling/fontFamily" value="Ubuntu"/>
+                <property key="labeling/fontItalic" value="true"/>
+                <property key="labeling/fontLetterSpacing" value="0"/>
+                <property key="labeling/fontLimitPixelSize" value="false"/>
+                <property key="labeling/fontMaxPixelSize" value="10000"/>
+                <property key="labeling/fontMinPixelSize" value="3"/>
+                <property key="labeling/fontSize" value="11"/>
+                <property key="labeling/fontSizeInMapUnits" value="false"/>
+                <property key="labeling/fontStrikeout" value="false"/>
+                <property key="labeling/fontUnderline" value="false"/>
+                <property key="labeling/fontWeight" value="75"/>
+                <property key="labeling/fontWordSpacing" value="0"/>
+                <property key="labeling/formatNumbers" value="false"/>
+                <property key="labeling/isExpression" value="false"/>
+                <property key="labeling/labelOffsetInMapUnits" value="true"/>
+                <property key="labeling/labelPerPart" value="false"/>
+                <property key="labeling/leftDirectionSymbol" value="&lt;"/>
+                <property key="labeling/limitNumLabels" value="false"/>
+                <property key="labeling/maxCurvedCharAngleIn" value="20"/>
+                <property key="labeling/maxCurvedCharAngleOut" value="-20"/>
+                <property key="labeling/maxNumLabels" value="2000"/>
+                <property key="labeling/mergeLines" value="false"/>
+                <property key="labeling/minFeatureSize" value="0"/>
+                <property key="labeling/multilineAlign" value="0"/>
+                <property key="labeling/multilineHeight" value="1"/>
+                <property key="labeling/namedStyle" value="Bold Italic"/>
+                <property key="labeling/obstacle" value="true"/>
+                <property key="labeling/placeDirectionSymbol" value="0"/>
+                <property key="labeling/placement" value="0"/>
+                <property key="labeling/placementFlags" value="0"/>
+                <property key="labeling/plussign" value="false"/>
+                <property key="labeling/preserveRotation" value="true"/>
+                <property key="labeling/previewBkgrdColor" value="#ffffff"/>
+                <property key="labeling/priority" value="5"/>
+                <property key="labeling/quadOffset" value="4"/>
+                <property key="labeling/reverseDirectionSymbol" value="false"/>
+                <property key="labeling/rightDirectionSymbol" value=">"/>
+                <property key="labeling/scaleMax" value="10000000"/>
+                <property key="labeling/scaleMin" value="1"/>
+                <property key="labeling/scaleVisibility" value="false"/>
+                <property key="labeling/shadowBlendMode" value="6"/>
+                <property key="labeling/shadowColorB" value="0"/>
+                <property key="labeling/shadowColorG" value="0"/>
+                <property key="labeling/shadowColorR" value="0"/>
+                <property key="labeling/shadowDraw" value="false"/>
+                <property key="labeling/shadowOffsetAngle" value="135"/>
+                <property key="labeling/shadowOffsetDist" value="1"/>
+                <property key="labeling/shadowOffsetGlobal" value="true"/>
+                <property key="labeling/shadowOffsetUnits" value="1"/>
+                <property key="labeling/shadowRadius" value="1.5"/>
+                <property key="labeling/shadowRadiusAlphaOnly" value="false"/>
+                <property key="labeling/shadowRadiusUnits" value="1"/>
+                <property key="labeling/shadowScale" value="100"/>
+                <property key="labeling/shadowTransparency" value="30"/>
+                <property key="labeling/shadowUnder" value="0"/>
+                <property key="labeling/shapeBlendMode" value="0"/>
+                <property key="labeling/shapeBorderColorA" value="255"/>
+                <property key="labeling/shapeBorderColorB" value="128"/>
+                <property key="labeling/shapeBorderColorG" value="128"/>
+                <property key="labeling/shapeBorderColorR" value="128"/>
+                <property key="labeling/shapeBorderWidth" value="0"/>
+                <property key="labeling/shapeBorderWidthUnits" value="1"/>
+                <property key="labeling/shapeDraw" value="false"/>
+                <property key="labeling/shapeFillColorA" value="255"/>
+                <property key="labeling/shapeFillColorB" value="255"/>
+                <property key="labeling/shapeFillColorG" value="255"/>
+                <property key="labeling/shapeFillColorR" value="255"/>
+                <property key="labeling/shapeJoinStyle" value="64"/>
+                <property key="labeling/shapeOffsetUnits" value="1"/>
+                <property key="labeling/shapeOffsetX" value="0"/>
+                <property key="labeling/shapeOffsetY" value="0"/>
+                <property key="labeling/shapeRadiiUnits" value="1"/>
+                <property key="labeling/shapeRadiiX" value="0"/>
+                <property key="labeling/shapeRadiiY" value="0"/>
+                <property key="labeling/shapeRotation" value="0"/>
+                <property key="labeling/shapeRotationType" value="0"/>
+                <property key="labeling/shapeSVGFile" value=""/>
+                <property key="labeling/shapeSizeType" value="0"/>
+                <property key="labeling/shapeSizeUnits" value="1"/>
+                <property key="labeling/shapeSizeX" value="0"/>
+                <property key="labeling/shapeSizeY" value="0"/>
+                <property key="labeling/shapeTransparency" value="0"/>
+                <property key="labeling/shapeType" value="0"/>
+                <property key="labeling/textColorA" value="255"/>
+                <property key="labeling/textColorB" value="0"/>
+                <property key="labeling/textColorG" value="0"/>
+                <property key="labeling/textColorR" value="0"/>
+                <property key="labeling/textTransp" value="0"/>
+                <property key="labeling/upsidedownLabels" value="0"/>
+                <property key="labeling/wrapChar" value=""/>
+                <property key="labeling/xOffset" value="0"/>
+                <property key="labeling/yOffset" value="0"/>
+            </customproperties>
+            <blendMode>0</blendMode>
+            <featureBlendMode>0</featureBlendMode>
+            <layerTransparency>0</layerTransparency>
+            <displayfield>tweet_id</displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="Ubuntu"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype labelontop="0" editable="1" type="0" name="X_favoured_location"/>
+                <edittype labelontop="0" editable="1" type="0" name="X_tweet_location"/>
+                <edittype labelontop="0" editable="1" type="0" name="Y_favoured_location"/>
+                <edittype labelontop="0" editable="1" type="0" name="Y_tweet_location"/>
+                <edittype labelontop="0" editable="1" type="0" name="day"/>
+                <edittype labelontop="0" editable="1" type="0" name="day_of_week"/>
+                <edittype labelontop="0" editable="1" type="0" name="hour"/>
+                <edittype labelontop="0" editable="1" type="0" name="minutes"/>
+                <edittype labelontop="0" editable="1" type="0" name="month"/>
+                <edittype labelontop="0" editable="1" type="0" name="seconds"/>
+                <edittype labelontop="0" editable="1" type="0" name="text"/>
+                <edittype labelontop="0" editable="1" type="0" name="tweet_count_at_location"/>
+                <edittype labelontop="0" editable="1" type="0" name="tweet_id"/>
+                <edittype labelontop="0" editable="1" type="0" name="user_id"/>
+                <edittype labelontop="0" editable="1" type="0" name="word"/>
+                <edittype labelontop="0" editable="1" type="0" name="year"/>
+            </edittypes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <featformsuppress>0</featformsuppress>
+            <annotationform></annotationform>
+            <editorlayout>generatedlayout</editorlayout>
+            <excludeAttributesWMS/>
+            <excludeAttributesWFS/>
+            <attributeactions/>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" minLabelScale="0" maxLabelScale="1e+08" geometry="Polygon" type="vector" hasScaleBasedVisibilityFlag="0" scaleBasedLabelVisibilityFlag="0">
+            <id>wards220131009174255897</id>
+            <datasource>./wards2.shp</datasource>
+            <title></title>
+            <abstract></abstract>
+            <keywordList>
+                <value></value>
+            </keywordList>
+            <layername>wards2</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.999601272 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs</proj4>
+                    <srsid>100001</srsid>
+                    <srid>0</srid>
+                    <authid>USER:100001</authid>
+                    <description> * Generated CRS (+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.999601272 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs)</description>
+                    <projectionacronym>tmerc</projectionacronym>
+                    <ellipsoidacronym>airy</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <provider encoding="UTF-8">ogr</provider>
+            <previewExpression>COALESCE( "ZONE_CODE", '&lt;NULL>' )</previewExpression>
+            <vectorjoins/>
+            <renderer-v2 attr="tws/1000" symbollevels="0" type="graduatedSymbol">
+                <ranges>
+                    <range symbol="0" lower="0.000000" upper="16.800000" label="0.0000 - 16.8000"/>
+                    <range symbol="1" lower="16.800000" upper="33.600000" label="16.8000 - 33.6000"/>
+                    <range symbol="2" lower="33.600000" upper="50.400000" label="33.6000 - 50.4000"/>
+                    <range symbol="3" lower="50.400000" upper="67.200000" label="50.4000 - 67.2000"/>
+                    <range symbol="4" lower="67.200000" upper="84.000000" label="67.2000 - 84.0000"/>
+                </ranges>
+                <symbols>
+                    <symbol alpha="1" type="fill" name="0">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_unit" v="MM"/>
+                            <prop k="color" v="247,251,255,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="offset_unit" v="MM"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                    </symbol>
+                    <symbol alpha="1" type="fill" name="1">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_unit" v="MM"/>
+                            <prop k="color" v="199,220,239,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="offset_unit" v="MM"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                    </symbol>
+                    <symbol alpha="1" type="fill" name="2">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_unit" v="MM"/>
+                            <prop k="color" v="114,178,215,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="offset_unit" v="MM"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                    </symbol>
+                    <symbol alpha="1" type="fill" name="3">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_unit" v="MM"/>
+                            <prop k="color" v="40,120,184,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="offset_unit" v="MM"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                    </symbol>
+                    <symbol alpha="1" type="fill" name="4">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_unit" v="MM"/>
+                            <prop k="color" v="8,48,107,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="offset_unit" v="MM"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <source-symbol>
+                    <symbol alpha="1" type="fill" name="0">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_unit" v="MM"/>
+                            <prop k="color" v="140,157,88,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="offset_unit" v="MM"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                    </symbol>
+                </source-symbol>
+                <colorramp type="gradient" name="[source]">
+                    <prop k="color1" v="247,251,255,255"/>
+                    <prop k="color2" v="8,48,107,255"/>
+                    <prop k="discrete" v="0"/>
+                    <prop k="stops" v="0.13;222,235,247,255:0.26;198,219,239,255:0.39;158,202,225,255:0.52;107,174,214,255:0.65;66,146,198,255:0.78;33,113,181,255:0.9;8,81,156,255"/>
+                </colorramp>
+                <mode name="equal"/>
+                <rotation field=""/>
+                <sizescale field="" scalemethod="area"/>
+            </renderer-v2>
+            <customproperties>
+                <property key="labeling" value="pal"/>
+                <property key="labeling/addDirectionSymbol" value="false"/>
+                <property key="labeling/angleOffset" value="0"/>
+                <property key="labeling/blendMode" value="0"/>
+                <property key="labeling/bufferBlendMode" value="0"/>
+                <property key="labeling/bufferColorA" value="255"/>
+                <property key="labeling/bufferColorB" value="255"/>
+                <property key="labeling/bufferColorG" value="255"/>
+                <property key="labeling/bufferColorR" value="255"/>
+                <property key="labeling/bufferDraw" value="false"/>
+                <property key="labeling/bufferJoinStyle" value="64"/>
+                <property key="labeling/bufferNoFill" value="false"/>
+                <property key="labeling/bufferSize" value="1"/>
+                <property key="labeling/bufferSizeInMapUnits" value="false"/>
+                <property key="labeling/bufferTransp" value="0"/>
+                <property key="labeling/centroidWhole" value="false"/>
+                <property key="labeling/decimals" value="3"/>
+                <property key="labeling/displayAll" value="false"/>
+                <property key="labeling/dist" value="0"/>
+                <property key="labeling/distInMapUnits" value="false"/>
+                <property key="labeling/enabled" value="false"/>
+                <property key="labeling/fieldName" value=""/>
+                <property key="labeling/fontBold" value="true"/>
+                <property key="labeling/fontCapitals" value="0"/>
+                <property key="labeling/fontFamily" value="Ubuntu"/>
+                <property key="labeling/fontItalic" value="true"/>
+                <property key="labeling/fontLetterSpacing" value="0"/>
+                <property key="labeling/fontLimitPixelSize" value="false"/>
+                <property key="labeling/fontMaxPixelSize" value="10000"/>
+                <property key="labeling/fontMinPixelSize" value="3"/>
+                <property key="labeling/fontSize" value="11"/>
+                <property key="labeling/fontSizeInMapUnits" value="false"/>
+                <property key="labeling/fontStrikeout" value="false"/>
+                <property key="labeling/fontUnderline" value="false"/>
+                <property key="labeling/fontWeight" value="75"/>
+                <property key="labeling/fontWordSpacing" value="0"/>
+                <property key="labeling/formatNumbers" value="false"/>
+                <property key="labeling/isExpression" value="false"/>
+                <property key="labeling/labelOffsetInMapUnits" value="true"/>
+                <property key="labeling/labelPerPart" value="false"/>
+                <property key="labeling/leftDirectionSymbol" value="&lt;"/>
+                <property key="labeling/limitNumLabels" value="false"/>
+                <property key="labeling/maxCurvedCharAngleIn" value="20"/>
+                <property key="labeling/maxCurvedCharAngleOut" value="-20"/>
+                <property key="labeling/maxNumLabels" value="2000"/>
+                <property key="labeling/mergeLines" value="false"/>
+                <property key="labeling/minFeatureSize" value="0"/>
+                <property key="labeling/multilineAlign" value="0"/>
+                <property key="labeling/multilineHeight" value="1"/>
+                <property key="labeling/namedStyle" value="Bold Italic"/>
+                <property key="labeling/obstacle" value="true"/>
+                <property key="labeling/placeDirectionSymbol" value="0"/>
+                <property key="labeling/placement" value="0"/>
+                <property key="labeling/placementFlags" value="0"/>
+                <property key="labeling/plussign" value="false"/>
+                <property key="labeling/preserveRotation" value="true"/>
+                <property key="labeling/previewBkgrdColor" value="#ffffff"/>
+                <property key="labeling/priority" value="5"/>
+                <property key="labeling/quadOffset" value="4"/>
+                <property key="labeling/reverseDirectionSymbol" value="false"/>
+                <property key="labeling/rightDirectionSymbol" value=">"/>
+                <property key="labeling/scaleMax" value="10000000"/>
+                <property key="labeling/scaleMin" value="1"/>
+                <property key="labeling/scaleVisibility" value="false"/>
+                <property key="labeling/shadowBlendMode" value="6"/>
+                <property key="labeling/shadowColorB" value="0"/>
+                <property key="labeling/shadowColorG" value="0"/>
+                <property key="labeling/shadowColorR" value="0"/>
+                <property key="labeling/shadowDraw" value="false"/>
+                <property key="labeling/shadowOffsetAngle" value="135"/>
+                <property key="labeling/shadowOffsetDist" value="1"/>
+                <property key="labeling/shadowOffsetGlobal" value="true"/>
+                <property key="labeling/shadowOffsetUnits" value="1"/>
+                <property key="labeling/shadowRadius" value="1.5"/>
+                <property key="labeling/shadowRadiusAlphaOnly" value="false"/>
+                <property key="labeling/shadowRadiusUnits" value="1"/>
+                <property key="labeling/shadowScale" value="100"/>
+                <property key="labeling/shadowTransparency" value="30"/>
+                <property key="labeling/shadowUnder" value="0"/>
+                <property key="labeling/shapeBlendMode" value="0"/>
+                <property key="labeling/shapeBorderColorA" value="255"/>
+                <property key="labeling/shapeBorderColorB" value="128"/>
+                <property key="labeling/shapeBorderColorG" value="128"/>
+                <property key="labeling/shapeBorderColorR" value="128"/>
+                <property key="labeling/shapeBorderWidth" value="0"/>
+                <property key="labeling/shapeBorderWidthUnits" value="1"/>
+                <property key="labeling/shapeDraw" value="false"/>
+                <property key="labeling/shapeFillColorA" value="255"/>
+                <property key="labeling/shapeFillColorB" value="255"/>
+                <property key="labeling/shapeFillColorG" value="255"/>
+                <property key="labeling/shapeFillColorR" value="255"/>
+                <property key="labeling/shapeJoinStyle" value="64"/>
+                <property key="labeling/shapeOffsetUnits" value="1"/>
+                <property key="labeling/shapeOffsetX" value="0"/>
+                <property key="labeling/shapeOffsetY" value="0"/>
+                <property key="labeling/shapeRadiiUnits" value="1"/>
+                <property key="labeling/shapeRadiiX" value="0"/>
+                <property key="labeling/shapeRadiiY" value="0"/>
+                <property key="labeling/shapeRotation" value="0"/>
+                <property key="labeling/shapeRotationType" value="0"/>
+                <property key="labeling/shapeSVGFile" value=""/>
+                <property key="labeling/shapeSizeType" value="0"/>
+                <property key="labeling/shapeSizeUnits" value="1"/>
+                <property key="labeling/shapeSizeX" value="0"/>
+                <property key="labeling/shapeSizeY" value="0"/>
+                <property key="labeling/shapeTransparency" value="0"/>
+                <property key="labeling/shapeType" value="0"/>
+                <property key="labeling/textColorA" value="255"/>
+                <property key="labeling/textColorB" value="0"/>
+                <property key="labeling/textColorG" value="0"/>
+                <property key="labeling/textColorR" value="0"/>
+                <property key="labeling/textTransp" value="0"/>
+                <property key="labeling/upsidedownLabels" value="0"/>
+                <property key="labeling/wrapChar" value=""/>
+                <property key="labeling/xOffset" value="0"/>
+                <property key="labeling/yOffset" value="0"/>
+            </customproperties>
+            <blendMode>0</blendMode>
+            <featureBlendMode>0</featureBlendMode>
+            <layerTransparency>0</layerTransparency>
+            <displayfield>ZONE_CODE</displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="Ubuntu"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210001"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210002"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210003"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210004"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210005"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210006"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210007"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210008"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210009"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210010"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210011"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210012"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210013"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210015"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210016"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210017"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210018"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210019"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210020"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210021"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210022"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210023"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210024"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210025"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210027"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210028"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210029"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210030"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210031"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210032"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210033"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210034"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210035"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210036"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210037"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210039"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210040"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210041"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210042"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210043"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210044"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210045"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210046"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210047"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210048"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210049"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210051"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210052"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210053"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210054"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210055"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210056"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210057"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210058"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210059"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210060"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210061"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210063"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210064"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210065"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210066"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210067"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210068"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210069"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210070"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210071"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210072"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210073"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210075"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210076"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210077"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210078"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210079"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210080"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210081"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210082"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210083"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210084"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210085"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210087"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210088"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210089"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210090"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210091"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210092"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210093"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210094"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210095"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210096"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210097"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210099"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210100"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210101"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210102"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210103"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210104"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210105"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210106"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210107"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210108"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210109"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210110"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210111"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210112"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210113"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210114"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210115"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210116"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210117"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210118"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210119"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210120"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210121"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210122"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210123"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210124"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210125"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210126"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210127"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210128"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210129"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210130"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210131"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210132"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210133"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210135"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210136"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210137"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210138"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210139"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210140"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210141"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210142"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210143"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210144"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210145"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210147"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210148"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210149"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210150"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210151"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210152"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210153"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210154"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210155"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210156"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210157"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210159"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210160"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210161"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210162"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210163"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210164"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210165"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210166"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210167"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210168"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210169"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210171"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210172"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210173"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210174"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210175"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210176"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210177"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210178"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210179"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210180"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210181"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210183"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210184"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210185"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210186"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210187"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210188"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210189"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210190"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210191"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210192"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210193"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210195"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210196"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210197"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210198"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210199"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210200"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210201"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210202"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210203"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210204"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210205"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210207"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210208"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210209"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210210"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210211"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210212"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210213"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210214"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210215"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210216"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210217"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210219"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210220"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210221"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210222"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210223"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210224"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210225"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210226"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210227"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210228"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210229"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210230"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210231"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210232"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210233"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210234"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210235"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210236"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210237"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210238"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210239"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210240"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210241"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210242"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210243"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210244"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210245"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210246"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210247"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210248"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210249"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210250"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210251"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210252"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210253"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210255"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210256"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210257"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210258"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210259"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210260"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210261"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210262"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210263"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210264"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210265"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210267"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210268"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210269"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210270"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210271"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210272"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210273"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210274"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210275"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210276"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210277"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210279"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210280"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210281"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210282"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210283"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210284"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210285"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210286"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210287"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210288"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210289"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210291"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210292"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210293"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210294"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210295"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210296"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210297"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210298"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210299"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210300"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210301"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210303"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210304"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210305"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210306"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210307"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210308"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210309"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210310"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210311"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210312"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210313"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210315"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210316"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210317"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210318"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210319"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210320"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210321"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210322"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210323"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210324"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210325"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210327"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210328"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210329"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210330"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210331"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210332"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210333"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210334"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210335"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210336"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210337"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210339"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210340"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210341"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210342"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210343"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210344"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210345"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210346"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210347"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210348"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210349"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210350"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210351"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210352"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210353"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210354"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210355"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210356"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210357"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210358"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210359"/>
+                <edittype labelontop="0" editable="1" type="0" name="ST1210360"/>
+                <edittype labelontop="0" editable="1" type="0" name="Short car"/>
+                <edittype labelontop="0" editable="1" type="0" name="ZONE_CODE"/>
+                <edittype labelontop="0" editable="1" type="0" name="ZONE_LABEL"/>
+                <edittype labelontop="0" editable="1" type="0" name="ntweets"/>
+                <edittype labelontop="0" editable="1" type="0" name="tws/1000"/>
+            </edittypes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <featformsuppress>0</featformsuppress>
+            <annotationform></annotationform>
+            <editorlayout>generatedlayout</editorlayout>
+            <excludeAttributesWMS/>
+            <excludeAttributesWFS/>
+            <attributeactions/>
+        </maplayer>
+    </projectlayers>
+    <properties>
+        <SpatialRefSys>
+            <ProjectCrs type="QString">EPSG:4326</ProjectCrs>
+            <ProjectCRSID type="int">3857</ProjectCRSID>
+            <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+        </SpatialRefSys>
+        <Paths>
+            <Absolute type="bool">false</Absolute>
+        </Paths>
+        <Gui>
+            <SelectionColorBluePart type="int">0</SelectionColorBluePart>
+            <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
+            <CanvasColorRedPart type="int">255</CanvasColorRedPart>
+            <SelectionColorRedPart type="int">255</SelectionColorRedPart>
+            <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+            <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
+            <CanvasColorBluePart type="int">255</CanvasColorBluePart>
+        </Gui>
+        <PositionPrecision>
+            <DecimalPlaces type="int">2</DecimalPlaces>
+            <Automatic type="bool">true</Automatic>
+        </PositionPrecision>
+    </properties>
+</qgis>

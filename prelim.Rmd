@@ -71,7 +71,7 @@ qmap('Leeds') + geom_point(aes(x=coordinates(twsll)[,1], y=coordinates(twsll)[,2
 ```
 
 ## Analysis of timescales of twitter data
-Finally, let us look at the time period over which the data has been collected:
+Let us look at the time period over which the data has been collected:
 
 ```{r}
 summary(tw$year) ; summary(tw$month) ; summary(tw$day) ; summary(tw$hour)
@@ -98,6 +98,63 @@ qplot(data=tmsum, x=month, y=word) + geom_smooth() + scale_x_continuous(breaks=1
 dcast(twm, formula= year + month ~ variable)[,1:3]  
 ```
 From the above it seems there is a seasonal pattern to the tweets also.
+
+## Analysis of most prolific tweeters
+Let us define a prolific tweeter as someone who tweets on museums more that 10 times.
+```{r}
+summary(tw$user_id)
+ftws <- names(summary(tw$user_id))[1:10]
+f <- which(tw$user_id %in% ftws)
+```
+
+Now plot the spatial distribution of these prolific tweeters, and colour code them:
+
+```{r}
+twsll <- twsll[f,]
+twsll$user_id <- as.factor(twsll$user_id)
+plot(twsll)
+ggplot() + 
+  geom_point(aes(x=coordinates(twsll)[,1], y=coordinates(twsll)[,2], color=user_id), data=twsll@data) +
+  geom_path(aes(x=coordinates(twsll)[,1], y=coordinates(twsll)[,2], color=user_id,
+            group = user_id), data=twsll@data)
+aggregate(tw[f,4:5], by=list(tw$user_id[f]), range)
+dr <- aggregate(tw[f,4:5], by=list(tw$user_id[f]), range)
+sqrt((dr[,2][,1] -dr[,2][,2])^2 + (dr[,3][,1] -dr[,3][,2])^2) / 1000
+fd <- which(tw$user_id %in% ftws[c(1,3,4,6,7,8)])
+summary(tw[fd,])
+```
+
+## Analysis of repeated tweets
+It seems that some tweets are repeated:
+```{r}
+class(tw$text)
+tw$text <- as.character(tw$text)
+tw[grepl("good pharaoh", tw$text),]
+length(unique(tw$text)) / nrow(tw) 
+length(unique(tw$text[fd])) / length(fd) # Only 70% unique
+```
+
+The results seem encouraging, but it was discovered that many tweets flagged as 'unique' are
+in fact duplicates, just with different html tags, leading to incorrect identification of unique tweets:
+```{r}
+tw[grepl("Armley", tw$text),"text"][1:10]
+```
+To deal with this problem, we must split the strings, to remove the html data, to correctly identify the repeated tweets:
+```{r}
+ss <- (strsplit(tw$text, split="http"))
+sapply(ss, "[", 2)[1:10] # all the urls
+sapply(ss, "[", 1)[1:10] # all the text
+tw$ttext <- sapply(ss, "[", 1) # all the text
+length(unique(tw$text)) / nrow(tw) 
+length(unique(tw$ttext)) / nrow(tw)
+length(unique(tw$text[fd])) / length(fd) # seems 70% unique
+length(unique(tw$ttext[fd])) / length(fd) # only 30% unique
+```
+
+This shows that there only around 30% of the tweets by the most prolific 
+and mobile tweeters are actually unique, potentially a major issue.
+
+
 
 
 

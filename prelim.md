@@ -382,7 +382,7 @@ qmap("Leeds") + geom_point(aes(x = coordinates(twsll)[, 1], y = coordinates(twsl
 
 
 ## Analysis of timescales of twitter data
-Finally, let us look at the time period over which the data has been collected:
+Let us look at the time period over which the data has been collected:
 
 
 ```r
@@ -567,6 +567,352 @@ dcast(twm, formula = year + month ~ variable)[, 1:3]
 ```
 
 From the above it seems there is a seasonal pattern to the tweets also.
+
+## Analysis of most prolific tweeters
+Let us define a prolific tweeter as someone who tweets on museums more that 10 times.
+
+```r
+summary(tw$user_id)
+```
+
+```
+##  26526261  19825421  11813992     35853  36042554    780290  16199914 
+##        48        27        24        22        18        16        16 
+##  10621322  33983231  14228133  18221877  96873013 386455399  19386828 
+##        13        12        11        10        10         9         8 
+##  19966468  20229810  20370009  20375397  21853340  22377951  29471057 
+##         8         8         8         8         8         8         8 
+##  43545238  60879443  96879879 126890680 348334015   1151411   6446442 
+##         8         8         8         8         8         7         7 
+##  15911282  37530200 124871674 193617734  18123429  20139600  28652355 
+##         7         7         7         7         6         6         6 
+##  39027948 162066517 207308581 243607389 347980609 385517913 602899508 
+##         6         6         6         6         6         6         6 
+## 701194909   6840592   7596312  14388335  20491412  22640873  24222444 
+##         6         5         5         5         5         5         5 
+##  24372980  34956737  39280228  48567927  49633019  84302881  96383367 
+##         5         5         5         5         5         5         5 
+## 111985724 160479725 224188206 244700139 349291843     64623     79553 
+##         5         5         5         5         5         4         4 
+##   1220781   5677082   9748572  10064382  14524988  14786188  14868904 
+##         4         4         4         4         4         4         4 
+##  15602469  15726425  16192509  16817688  16946519  17646755  17977885 
+##         4         4         4         4         4         4         4 
+##  19018058  19552271  20393345  20627378  21218576  22379233  22922049 
+##         4         4         4         4         4         4         4 
+##  23597283  25491483  26816689  29090378  32486226  34907934  37889243 
+##         4         4         4         4         4         4         4 
+##  39557708  40243397  41086888  83091527  96752209 113699677 150987594 
+##         4         4         4         4         4         4         4 
+## 175703268   (Other) 
+##         4       863
+```
+
+```r
+ftws <- names(summary(tw$user_id))[1:10]
+f <- which(tw$user_id %in% ftws)
+```
+
+
+Now plot the spatial distribution of these prolific tweeters, and colour code them:
+
+
+```r
+twsll <- twsll[f, ]
+twsll$user_id <- as.factor(twsll$user_id)
+plot(twsll)
+```
+
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-91.png) 
+
+```r
+ggplot() + geom_point(aes(x = coordinates(twsll)[, 1], y = coordinates(twsll)[, 
+    2], color = user_id), data = twsll@data) + geom_path(aes(x = coordinates(twsll)[, 
+    1], y = coordinates(twsll)[, 2], color = user_id, group = user_id), data = twsll@data)
+```
+
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-92.png) 
+
+```r
+aggregate(tw[f, 4:5], by = list(tw$user_id[f]), range)
+```
+
+```
+##     Group.1 X_tweet_location.1 X_tweet_location.2 Y_tweet_location.1
+## 1     35853             416066             431798             432768
+## 2    780290             429802             429802             434041
+## 3  10621322             416066             430678             432768
+## 4  11813992             429822             430771             432943
+## 5  14228133             430014             430014             433529
+## 6  16199914             416066             418361             432768
+## 7  19825421             429724             429933             434029
+## 8  26526261             427458             430771             432943
+## 9  33983231             429830             429830             434030
+## 10 36042554             430116             430116             433748
+##    Y_tweet_location.2
+## 1              435183
+## 2              434041
+## 3              433862
+## 4              434029
+## 5              433529
+## 6              435037
+## 7              438934
+## 8              434169
+## 9              434030
+## 10             433748
+```
+
+```r
+dr <- aggregate(tw[f, 4:5], by = list(tw$user_id[f]), range)
+sqrt((dr[, 2][, 1] - dr[, 2][, 2])^2 + (dr[, 3][, 1] - dr[, 3][, 2])^2)/1000
+```
+
+```
+##  [1] 15.916  0.000 14.653  1.442  0.000  3.227  4.909  3.533  0.000  0.000
+```
+
+```r
+fd <- which(tw$user_id %in% ftws[c(1, 3, 4, 6, 7, 8)])
+summary(tw[fd, ])
+```
+
+```
+##          word        tweet_id            user_id   X_tweet_location
+##  exhibit   :  0   Min.   :8.36e+16   26526261:48   Min.   :416066  
+##  exhibition: 14   1st Qu.:1.15e+17   11813992:24   1st Qu.:418361  
+##  gallery   : 12   Median :1.50e+17   35853   :22   Median :427463  
+##  museum    :113   Mean   :1.50e+17   780290  :16   Mean   :425579  
+##                   3rd Qu.:1.86e+17   16199914:16   3rd Qu.:429802  
+##                   Max.   :2.44e+17   10621322:13   Max.   :431798  
+##                                      (Other) : 0                   
+##  Y_tweet_location      day           month            year     
+##  Min.   :432768   Min.   : 1.0   Min.   : 1.00   Min.   :2011  
+##  1st Qu.:432943   1st Qu.:13.0   1st Qu.: 4.00   1st Qu.:2011  
+##  Median :433914   Median :18.0   Median : 7.00   Median :2011  
+##  Mean   :433622   Mean   :17.1   Mean   : 6.83   Mean   :2011  
+##  3rd Qu.:434041   3rd Qu.:22.0   3rd Qu.:10.00   3rd Qu.:2012  
+##  Max.   :435183   Max.   :31.0   Max.   :12.00   Max.   :2012  
+##                                                                
+##       hour         minutes        seconds      day_of_week 
+##  Min.   : 8.0   Min.   : 0.0   Min.   : 0.0   Min.   :1.0  
+##  1st Qu.:13.0   1st Qu.: 9.5   1st Qu.:21.5   1st Qu.:3.0  
+##  Median :14.0   Median :21.0   Median :37.0   Median :4.0  
+##  Mean   :14.3   Mean   :24.8   Mean   :32.0   Mean   :4.3  
+##  3rd Qu.:17.0   3rd Qu.:43.0   3rd Qu.:43.0   3rd Qu.:6.0  
+##  Max.   :20.0   Max.   :59.0   Max.   :58.0   Max.   :7.0  
+##                                                            
+##  X_favoured_location Y_favoured_location tweet_count_at_location
+##  Min.   :407700      Min.   :415900      Min.   :  1            
+##  1st Qu.:423800      1st Qu.:432900      1st Qu.:  1            
+##  Median :423800      Median :433500      Median : 23            
+##  Mean   :425629      Mean   :434633      Mean   :108            
+##  3rd Qu.:429650      3rd Qu.:434400      3rd Qu.:273            
+##  Max.   :461300      Max.   :472100      Max.   :273            
+##                                                                 
+##                                                                                                                                 text   
+##  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p                                  :16  
+##  Visiting the Mummy... (@ Leeds City Museum) http://t.co/Ish1yUP1                                                                 :16  
+##  Dragon quest! (@ Royal Armouries Museum) http://t.co/qjCI3oSv                                                                    : 8  
+##  Brandon Tutthill_ shot by Paul Floyd Blake_ on show at Impression Gallery Personal Be  @ Impressions Gallery http://t.co/0FwJik1b: 2  
+##  here for the internet gallery advisory board... #lifeonline (@ National Media Museum w/ @dripster) http://t.co/7bFEqoOm          : 2  
+##  I just ousted @idlesi as the mayor of National Media Museum on @foursquare! http://t.co/7JCq0yB6                                 : 2  
+##  (Other)                                                                                                                          :93
+```
+
+
+## Analysis of repeated tweets
+It seems that some tweets are repeated:
+
+```r
+class(tw$text)
+```
+
+```
+## [1] "factor"
+```
+
+```r
+tw$text <- as.character(tw$text)
+tw[grepl("good pharaoh", tw$text), ]
+```
+
+```
+##            word  tweet_id  user_id X_tweet_location Y_tweet_location day
+## 210  exhibition 1.926e+17 11813992           429822           434029  18
+## 211  exhibition 1.926e+17 11813992           429822           434029  18
+## 215  exhibition 1.926e+17 11813992           429822           434029  18
+## 220  exhibition 1.926e+17 11813992           429822           434029  18
+## 221  exhibition 1.926e+17 11813992           429822           434029  18
+## 227  exhibition 1.926e+17 11813992           429822           434029  18
+## 230  exhibition 1.926e+17 11813992           429822           434029  18
+## 232  exhibition 1.926e+17 11813992           429822           434029  18
+## 1306     museum 1.926e+17 11813992           429822           434029  18
+## 1313     museum 1.926e+17 11813992           429822           434029  18
+## 1357     museum 1.926e+17 11813992           429822           434029  18
+## 1365     museum 1.926e+17 11813992           429822           434029  18
+## 1418     museum 1.926e+17 11813992           429822           434029  18
+## 1466     museum 1.926e+17 11813992           429822           434029  18
+## 1470     museum 1.926e+17 11813992           429822           434029  18
+## 1526     museum 1.926e+17 11813992           429822           434029  18
+##      month year hour minutes seconds day_of_week X_favoured_location
+## 210      4 2012   14      11      27           4              427900
+## 211      4 2012   14      11      27           4              449300
+## 215      4 2012   14      11      27           4              429800
+## 220      4 2012   14      11      27           4              428100
+## 221      4 2012   14      11      27           4              430700
+## 227      4 2012   14      11      27           4              447700
+## 230      4 2012   14      11      27           4              407700
+## 232      4 2012   14      11      27           4              430300
+## 1306     4 2012   14      11      27           4              407700
+## 1313     4 2012   14      11      27           4              430300
+## 1357     4 2012   14      11      27           4              427900
+## 1365     4 2012   14      11      27           4              449300
+## 1418     4 2012   14      11      27           4              429800
+## 1466     4 2012   14      11      27           4              428100
+## 1470     4 2012   14      11      27           4              430700
+## 1526     4 2012   14      11      27           4              447700
+##      Y_favoured_location tweet_count_at_location
+## 210               454100                       1
+## 211               426500                       1
+## 215               434000                       1
+## 220               460500                       1
+## 221               432900                       1
+## 227               456000                       1
+## 230               442000                       1
+## 232               433300                       1
+## 1306              442000                       1
+## 1313              433300                       1
+## 1357              454100                       1
+## 1365              426500                       1
+## 1418              434000                       1
+## 1466              460500                       1
+## 1470              432900                       1
+## 1526              456000                       1
+##                                                                                                 text
+## 210  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 211  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 215  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 220  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 221  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 227  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 230  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 232  Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 1306 Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 1313 Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 1357 Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 1365 Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 1418 Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 1466 Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 1470 Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+## 1526 Rather a good pharaoh exhibition for a very wet day. (@ Leeds City Museum) http://t.co/P4cjWq2p
+```
+
+```r
+length(unique(tw$text))/nrow(tw)
+```
+
+```
+## [1] 0.727
+```
+
+```r
+length(unique(tw$text[fd]))/length(fd)  # Only 70% unique
+```
+
+```
+## [1] 0.6906
+```
+
+
+The results seem encouraging, but it was discovered that many tweets flagged as 'unique' are
+in fact duplicates, just with different html tags, leading to incorrect identification of unique tweets:
+
+```r
+tw[grepl("Armley", tw$text), "text"][1:10]
+```
+
+```
+##  [1] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://4sq.com/nudkeU"                           
+##  [2] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://t.co/P3Fgc44x"                            
+##  [3] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://t.co/pMOmvk0Q"                            
+##  [4] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://t.co/xfGpXSgz"                            
+##  [5] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://t.co/ZwHuxmtu"                            
+##  [6] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://t.co/EF3DWHA"                             
+##  [7] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://4sq.com/nzgE9K"                           
+##  [8] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://t.co/8G4GImln"                            
+##  [9] "I just ousted Sonal N. as the mayor of Armley Mills Industrial Museum on @foursquare! http://t.co/NLulwUei"
+## [10] "I'm at Armley Mills Industrial Museum (Canal Road_ Leeds) http://4sq.com/mCoaWS"
+```
+
+To deal with this problem, we must split the strings, to remove the html data, to correctly identify the repeated tweets:
+
+```r
+ss <- (strsplit(tw$text, split = "http"))
+sapply(ss, "[", 2)[1:10]  # all the urls
+```
+
+```
+##  [1] NA                 "://t.co/MEAOoWW6" "://t.co/69Pt2pnj"
+##  [4] NA                 NA                 NA                
+##  [7] NA                 NA                 NA                
+## [10] NA
+```
+
+```r
+sapply(ss, "[", 1)[1:10]  # all the text
+```
+
+```
+##  [1] "@RachGreaux @lawrenx exhibit 1 here_ tarnishing me with the same old brush #AGuyCanChange"                                                   
+##  [2] "Remember the case I made the other day of deleting my Facebook because of the absolute dross? Observe_ exhibit two... "                      
+##  [3] "Exhibit A : a guy who has just passed me in Leeds. 13 degrees is not shorts and tshirt weather. Crazy fool! "                                
+##  [4] "I must exhibit helplessness too well. Woman who changed my coin_ spotted me from a bus stop in front of the car park. Thank you anyway"      
+##  [5] "@rache_elizdakin get some kip. Leeds beerfest starts tmoro if your north n really good postwar painters n sculpturs exhibit at Hepworth"     
+##  [6] "Had a day out planned for me & Stu this Sat_afternoon looking at new Joan Mirâ€” exhibit at YSP dinner there_then concert in the chapel..."  
+##  [7] "@mdhendry Anatomy of an Angel is brilliant. Went to the exhibit a month or two ago."                                                         
+##  [8] "I see that life cannot exhibit all to me_ as day cannot_ I see that I am to wait for what will be exhibited by death."                       
+##  [9] "@helendaykin @lordlangley73 u want to swop and take stage and we'll have your exhibit #whathaveiagreedto : )"                                
+## [10] "#8outof10cats repeats on 4music Sean Lock is hilarious #jedwardbanter  your best chance of getting into Uni is as an exhibit in a jar!  haha"
+```
+
+```r
+tw$ttext <- sapply(ss, "[", 1)  # all the text
+length(unique(tw$text))/nrow(tw)
+```
+
+```
+## [1] 0.727
+```
+
+```r
+length(unique(tw$ttext))/nrow(tw)
+```
+
+```
+## [1] 0.5976
+```
+
+```r
+length(unique(tw$text[fd]))/length(fd)  # seems 70% unique
+```
+
+```
+## [1] 0.6906
+```
+
+```r
+length(unique(tw$ttext[fd]))/length(fd)  # only 30% unique
+```
+
+```
+## [1] 0.3525
+```
+
+
+This shows that there only around 30% of the tweets by the most prolific 
+and mobile tweeters are actually unique, potentially a major issue.
+
+
 
 
 

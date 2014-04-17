@@ -6,3 +6,10 @@ A
 preprint of this paper that describes the method in more
 detail and provides context, is available on [arXiv](http://arxiv.org/):
 http://arxiv.org/abs/1403.5118
+
+To run the reproducible code, open R in the directory of this
+repository (downloaded via the
+[Download ZIP](https://github.com/Robinlovelace/twitter-leeds/archive/master.zip)
+button on the right) and run, preferably line by line, the
+code contained in the "si-museums.R" script. "tfc.R" needs to
+be run after this for the callibration code to work.
